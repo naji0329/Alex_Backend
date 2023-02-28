@@ -1,13 +1,15 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
+const cors = require('cors');
 const { readProductFromXlsx } = require('./controllers/products');
 
 const app = express();
+app.use(cors());
 
 // Connect Database
 connectDB();
-readProductFromXlsx();
+// readProductFromXlsx();
 // Init Middleware
 app.use(express.json());
 
