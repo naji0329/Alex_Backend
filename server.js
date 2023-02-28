@@ -7,15 +7,12 @@ const app = express();
 
 // Connect Database
 connectDB();
-// readProductFromXlsx();
+readProductFromXlsx();
 // Init Middleware
 app.use(express.json());
 
 // Define Routes
-app.use('/api/users', require('./routes/api/users'));
-// app.use('/api/auth', require('./routes/api/auth'));
-// app.use('/api/profile', require('./routes/api/profile'));
-// app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/products', require('./routes/api/products'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

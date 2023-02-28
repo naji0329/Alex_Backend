@@ -4,10 +4,7 @@ const Product = require('../models/Product');
 
 async function readProductFromXlsx() {
   try {
-    // var obj = xlsx.parse(__dirname + './../test.xlsx'); // parses a file
-    // console.log(obj);
     var obj = xlsx.parse(fs.readFileSync(__dirname + './../test.xlsx')); // parses a buffer
-    // console.log(obj[0].data);
 
     var products = [];
 
@@ -75,4 +72,11 @@ async function createProduct(product) {
   return _product;
 }
 
-module.exports = { readProductFromXlsx, createProduct };
+// Get Products data
+async function getProducts() {
+  const products = await Product.find();
+  console.log("products", products);
+  return products;
+}
+
+module.exports = { readProductFromXlsx, createProduct, getProducts };
